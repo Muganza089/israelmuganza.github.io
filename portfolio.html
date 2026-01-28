@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Israel Muganza</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+
+    <!-- Code Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    mono: ['JetBrains Mono', 'monospace']
+                },
+                extend: {
+                    colors: {
+                        bg: '#020617',
+                        card: '#020617',
+                        cyan: '#22d3ee',
+                        purple: '#a855f7',
+                        green: '#4ade80',
+                        yellow: '#fde047',
+                        pink: '#f472b6',
+                        blue: '#38bdf8'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Gradient text */
+        .gradient {
+            background: linear-gradient(135deg, #22d3ee, #a855f7, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ================= CODE BACKGROUND ================= */
+        #code-bg {
+            position: absolute;
+            inset: 0;
+            padding: 4rem;
+            font-size: 19px;
+            line-height: 1.7;
+            opacity: 0.3;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+
+        /* Code colors */
+        .kw  { color: #a855f7; }   /* keywords */
+        .fn  { color: #22d3ee; }   /* functions */
+        .str { color: #4ade80; }   /* strings */
+        .cls { color: #fde047; }   /* classes */
+        .num { color: #38bdf8; }   /* numbers */
+        .cm  { color: #f472b6; }   /* comments */
+
+        /* Cursor */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            background: white;
+            margin-left: 3px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Card hover */
+        .card {
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+        }
+    </style>
+</head>
+
+<body class="bg-bg text-slate-200 scroll-smooth">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <span class="text-cyan font-bold">&lt;/&gt; DEV <h1>Israel MUGANZA</h1></span>
+
+            <div class="hidden md:flex gap-8 text-sm">
+                <a href="#about" class="hover:text-cyan">À propos</a>
+                <a href="#skills" class="hover:text-cyan">Compétences</a>
+                <a href="#work" class="hover:text-cyan">Projets</a>
+                <a href="#contact" class="bg-cyan text-black px-4 py-2 rounded">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center px-6 pt-20">
+
+        <!-- BACKGROUND CODE -->
+        <pre id="code-bg" class="pointer-events-none"></pre>
+
+        <div class="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+            <!-- PHOTO -->
+            <div class="flex justify-center">
+                <img
+                    src="profil_background.jpg"
+                    alt="Photo profil"
+                    class="w-64 h-64 rounded-full border-4 border-cyan object-cover
+                           shadow-[0_0_50px_rgba(34,211,238,0.7)]"
+                >
+            </div>
+
+            <!-- TEXT -->
+            <div>
+                <h1 class="text-5xl font-bold mb-6">
+                    Je développe des<br>
+                    <span class="gradient">applications modernes</span>
+                </h1>
+
+                <p class="text-slate-400 mb-8">
+                    Développeur Web & Mobile spécialisé en Django, APIs sécurisées
+                    et interfaces performantes.
+                </p>
+
+                <div class="flex gap-4">
+                    <a
+                        href="#work"
+                        class="bg-cyan text-black px-6 py-3 rounded-lg"
+                    >
+                        Voir projets
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="border border-cyan px-6 py-3 rounded-lg"
+                    >
+                        Contact
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-black/40">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+            <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+                class="rounded-xl shadow-xl"
+                alt="Code"
+            >
+
+            <div>
+                <h2 class="text-4xl font-bold mb-6 gradient">À propos</h2>
+
+                <p class="text-slate-400">
+                    Développeur passionné par le code propre, la performance
+                    et les architectures solides.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient">
+            Compétences
+        </h2>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="bg-card p-6 rounded border border-slate-800">Python</div>
+            <div class="bg-card p-6 rounded border border-slate-800">Django</div>
+            <div class="bg-card p-6 rounded border border-slate-800">REST API</div>
+            <div class="bg-card p-6 rounded border border-slate-800">Tailwind</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="work" class="py-24 bg-black/40">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient">
+            Projets
+        </h2>
+
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+            <div class="card bg-card p-6 rounded border border-slate-800">
+                <i class="fas fa-code text-cyan text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold">Application Django</h3>
+            </div>
+
+            <div class="card bg-card p-6 rounded border border-slate-800">
+                <i class="fas fa-mobile text-purple text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold">App Mobile</h3>
+            </div>
+
+            <div class="card bg-card p-6 rounded border border-slate-800">
+                <i class="fas fa-server text-green text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold">API Backend</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-black/50">
+        <div class="max-w-xl mx-auto bg-card p-8 rounded border border-slate-800">
+
+            <h2 class="text-3xl font-bold text-center mb-6 gradient">
+                Contact
+            </h2>
+
+            <form class="space-y-4">
+                <input
+                    class="w-full bg-black border border-slate-700 p-3 rounded"
+                    placeholder="Nom"
+                >
+                <input
+                    class="w-full bg-black border border-slate-700 p-3 rounded"
+                    placeholder="Email"
+                >
+                <textarea
+                    class="w-full bg-black border border-slate-700 p-3 rounded"
+                    rows="4"
+                ></textarea>
+
+                <button class="w-full bg-cyan text-black py-3 rounded">
+                    Envoyer
+                </button>
+            </form>
+
+        </div>
+    </section>
+
+    <footer class="py-6 text-center text-slate-500">
+        © 2024 – Developer Portfolio
+    </footer>
+
+    <!-- ================= TYPING + COLOR ENGINE ================= -->
+    <script>
+        const lines = [
+            "<span class='kw'>import</span> django",
+            "<span class='kw'>from</span> rest_framework <span class='kw'>import</span> serializers, viewsets",
+            "",
+            "<span class='kw'>class</span> <span class='cls'>Developer</span>:",
+            "    <span class='kw'>def</span> <span class='fn'>__init__</span>(self):",
+            "        self.stack = [<span class='str'>'Python'</span>, <span class='str'>'Django'</span>, <span class='str'>'REST API'</span>]",
+            "        self.mindset = <span class='str'>'Clean Code'</span>",
+            "",
+            "    <span class='kw'>def</span> <span class='fn'>build</span>(self):",
+            "        <span class='kw'>return</span> <span class='str'>'Scalable & Secure Applications'</span>",
+            "",
+            "dev = <span class='cls'>Developer</span>()",
+            "",
+            "<span class='kw'>while</span> <span class='num'>True</span>:",
+            "    <span class='fn'>print</span>(dev.build())"
+        ];
+
+        const el = document.getElementById("code-bg");
+        let line = 0;
+
+        function typeLines() {
+            if (line < lines.length) {
+                el.innerHTML += lines[line] + "\n";
+                line++;
+                setTimeout(typeLines, 120);
+            } else {
+                setTimeout(() => {
+                    el.innerHTML = "";
+                    line = 0;
+                    typeLines();
+                }, 3500);
+            }
+        }
+
+        typeLines();
+    </script>
+
+</body>
+</html>
